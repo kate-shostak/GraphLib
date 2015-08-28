@@ -1,14 +1,20 @@
-import node
-
-class Graph():
+from node import Node
+from collections import defaultdict
+i = 0
+class Graph(object):
 	def __init__(self):
-		self.graph = {}
+		self.graph = defaultdict(list)
 
-	def add_node(self, new_node, incident_nodes):
-		self.graph[new_node] = incident_nodes
-		for node in incident_nodes:
-			self.graph.setdefault(node, list()).append(new_node)
-		print self.graph
+	def add_node(self, new_node):
+		global i 
+		if isinstance(new_node, Node):
+			self.graph[new_node] = i
+			i += 1
+		else:
+			raise NameError("Not a node!")
+	
+	def print_node(self, node_name):
+		print self.graph[node_name]
 
 	def delete_node(self):
 		pass
@@ -23,8 +29,12 @@ class Graph():
 	def show_edeges(self, node):
 		pass
 
+my_node = Node("I_am_node_and_I_love_u")
+my_node1 = Node("I_am_node_and_I_love_u")
+my_graph = Graph()
+my_graph.add_node(my_node)
+my_graph.add_node(my_node1)
+# my_graph.print_node(my_node)
+# my_graph.print_node(my_node1)
 
-testGraph = Graph()
-testGraph.add_node('a', ['b','c'])
-testGraph.add_node('f', 'b')
-testGraph.add_node('')
+print my_graph.graph
