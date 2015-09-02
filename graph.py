@@ -13,8 +13,9 @@ class Graph(object):
 		else:
 			raise NameError("Not a node!")
 	
-	def print_node(self, node_name):
-		print self.graph[node_name]
+	def print_graph(self):
+		for node in self.graph:
+			print node + ":" + str(self.graph[node])
 
 	def delete_node(self):
 		pass
@@ -34,7 +35,4 @@ my_node1 = Node("I_am_node_and_I_love_u")
 my_graph = Graph()
 my_graph.add_node(my_node)
 my_graph.add_node(my_node1)
-# my_graph.print_node(my_node)
-# my_graph.print_node(my_node1)
-
-print my_graph.graph
+my_graph.print_graph()

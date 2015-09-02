@@ -4,6 +4,11 @@ class Node(object):
 		self.node_name = name
 		self.incident_vertices= ()
 
+	def __add__(self, other):
+		return self.node_name + other
+	def __repr__(self):
+		return self.node_name
+
 	def __hash__(self):
 		return hash(self.node_name)
 
