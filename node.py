@@ -6,6 +6,7 @@ class Node(object):
 
 	def __add__(self, other):
 		return self.node_name + other
+
 	def __repr__(self):
 		return self.node_name
 
@@ -14,6 +15,11 @@ class Node(object):
 
 	def __eq__(self, other_node):
 		return isinstance(other_node, Node) and self.node_name == other_node.node_name
+
+	def add_verticies(self, incident_vertices):
+		for vertice in incident_vertices:
+			self.incident_vertices.append(vertice)
+
 
 
 

@@ -1,21 +1,17 @@
 from node import Node
-from collections import defaultdict
-i = 0
+
 class Graph(object):
 	def __init__(self):
-		self.graph = defaultdict(list)
+		self.graph = list()
 
-	def add_node(self, new_node):
-		global i 
+	def add_node(self, new_node): 
 		if isinstance(new_node, Node):
-			self.graph[new_node] = i
-			i += 1
+			self.graph.append(new_node)
 		else:
 			raise NameError("Not a node!")
 	
 	def print_graph(self):
-		for node in self.graph:
-			print node + ":" + str(self.graph[node])
+		print self.graph
 
 	def delete_node(self):
 		pass
@@ -31,8 +27,6 @@ class Graph(object):
 		pass
 
 my_node = Node("I_am_node_and_I_love_u")
-my_node1 = Node("I_am_node_and_I_love_u")
 my_graph = Graph()
 my_graph.add_node(my_node)
-my_graph.add_node(my_node1)
 my_graph.print_graph()
